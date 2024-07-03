@@ -1,3 +1,7 @@
+from blog.views import my_blog
+
+
+
 """
 URL configuration for basic_mind project.
 
@@ -19,4 +23,5 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('blog/', my_blog, name='blog'),
 ]
