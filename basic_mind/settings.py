@@ -20,7 +20,8 @@ SECRET_KEY =os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['8000-christina5p-mindfulgrow-0ffy6j8ksnb.ws.codeinstitute-ide.net',
-'mindfulgrowth-5f753257331e.herokuapp.com']
+'mindfulgrowth-5f753257331e.herokuapp.com',
+'8080-christina5p-mindfulgrow-0ffy6j8ksnb.ws.codeinstitute-ide.net']
 
 
 # Application definition
