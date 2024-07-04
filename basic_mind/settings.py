@@ -17,7 +17,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-%s0!8rr$!pbkcomh1bmeybs4nldjtws=8n%pffttkm%(-nrrma'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-christina5p-mindfulgrow-0ffy6j8ksnb.ws.codeinstitute-ide.net',
 '.herokuapp.com']
@@ -93,6 +93,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*8000-christina5p-mindfulgrow-0ffy6j8ksnb.ws.codeinstitute-ide.net",
+    "https://*mindfulgrowth-5f753257331e.herokuapp.com" 
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

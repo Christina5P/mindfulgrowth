@@ -1,4 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
+STATUS = ((0, "Draft"), (1, "Published"))
 
 # models to store name of category for blogpost 
 
@@ -11,6 +13,8 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts") #to assign many categories to many posts
+    slug = models.SlugField(max_length=200, unique=True)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     
 class Comment(models.Model):
