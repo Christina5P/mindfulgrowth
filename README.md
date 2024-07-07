@@ -1,8 +1,8 @@
-### Introduction
+# Introduction
 
-### Content
+# Content
 
-### Project Set Up
+# Project Set Up
 ## User Stories
 ## Blog Plan
 ## Mindmap
@@ -11,7 +11,7 @@
 
 
 
-### Features
+# Features
 
 ## Home Page
 ## Blog Page
@@ -19,19 +19,19 @@
 ## Footer
 ## Register section
 
-### Setting up workspace
-# Run this command to install django:
+# Setting up workspace
+### Run this command to install django:
  pip3 install 'django<4'  
-# Next, install these libraries: 
+### Next, install these libraries: 
 pip3 install dj_database_url psycopg2
 pip3 install dj3-cloudinary-storage
-# Create a requirements.txt file to save all the installed libraries:
+### Create a requirements.txt file to save all the installed libraries:
 pip3 freeze --local > requirements.txt
-# You need to create a project and add my apps:
+### You need to create a project and add my apps:
 django-admin startproject mindfulgrowth
 python3 manage.py startapp blog
 Remember to add your apps in to the 'INSTALLED_APPS' in setting.py
- # Add your DB and CLoudinary library to your project:
+ ### Add your DB and CLoudinary library to your project:
  Copy the DATABASE_URL
  create a new file manual with name: env.py
  This file need to be placed in the project cataloge
@@ -69,40 +69,40 @@ INSTALLED_APPS = []
 
 Before deploying on heroku make sure: DEBUG = False
 
-# Create 3 new folders on the root directory: media, static, templates
+### Create 3 new folders on the root directory: media, static, templates
 
-# Create Procfile (needed for Heroku) on the root directory and inside the file type:
+### Create Procfile (needed for Heroku) on the root directory and inside the file type:
 web: gunicorn basic_mind.wsgi
 hint: It´s important to spell Procfile with a capital
 
 
 
-### Feautures Implementented
+# Feautures Implementented
 
-### Design
+# Design
 
-### Testing
+# Testing
 ## Validating Test
 ## Python Test
 ## Manual Test
 
-### Bugs
+# Bugs
 ## Fixed Bugs
 ## Unfixed Bugs
 
-### Technologies
-# Python - Language of this project
-# Javascript
-# HTML
-# CSS
-# Django - 
-# Cloudinary (for external image management)
-# Code Institute Postgres Database server for PostgreSQL 
-# Bootstrap
-# Github - Save the project in a repository
-# Heroku - Deploy it to a public website
+# Technologies
+### Python - Language of this project
+### Javascript
+### HTML
+### CSS
+### Django - 
+### Cloudinary (for external image management)
+### Code Institute Postgres Database server for PostgreSQL 
+### Bootstrap
+### Github - Save the project in a repository
+### Heroku - Deploy it to a public website
 
-### Deployment
+# Deployment
 
 For deploying, I use the Heroku app.
 At first, you commit everything to GitHub.
@@ -150,26 +150,26 @@ To see and implement changes in Django, type:
 python3 manage.py makemigrations
 pyhton3 manage.py migrate
 
-# How to Fork
+## How to Fork
 To fork this repository, click the "Fork" button at the top right corner of the main repository page. On the "Create a Fork" page, you can change the name of the repo if desired. Check the box if you want to copy the main branch or multiple branches (main is selected by default). Then, create the fork.
 
-# How to Clone (An alternative to fork)
+## How to Clone (An alternative to fork)
 To clone the repository, you create a copy in your repository (with all files and history).
 This creates a remote link to the original repo, allowing you to work in your copy and push changes back to the original.
 Open your repo and click the green "Code" button on the right-hand side. The easiest way is to open it with GitHub Desktop.
 
 You can read more information on cloning at the GitHub : https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository
 
-### Media
-# Icons
-# Images
-# Font
-# Databas
-# Framework 
+# Media
+## Icons
+## Images
+## Font
+## Databas
+## Framework 
 
-### Acknowledgement
+# Acknowledgement
 
-# for tutoring Django:
+### for tutoring Django:
 https://youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&si=9t7TdLJVAM9BM9Ga
 https://realpython.com/build-a-blog-from-scratch-django/#set-up-the-development-environment
 
