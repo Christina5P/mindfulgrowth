@@ -5,10 +5,30 @@
 # Project Set Up
 ## User Stories
 ## Blog Plan
+
+
 ## Mindmap
-## Relationship diagram
+
+![alt text](image-10.png)
+link to my mindmap: https://miro.com/app/board/uXjVK1IKqsk=/
+
+## Relationship diagram ERD
+
+
+Link: https://drive.google.com/file/d/1SYwaMzGs6PuOuEuA6Yi4T2Q0p8dvmSvd/view?usp=sharing
+
 ## Wireframes
 
+Wireframe is created in https://balsamiq.cloud/srvezeo/phn02iw/r3EBE
+Home page:
+![alt text](image-6.png)
+Blog page:
+![alt text](image-7.png)
+Courses:
+![alt text](image-8.png)
+
+Blogpost:
+![alt text](image-9.png)
 
 
 # Features
@@ -116,10 +136,7 @@ I chose to make a manual deployment, so I can see that everything goes ok and ha
 
 You need to create an app for your project in Heroku.
 In settings you also need to fill in the URL:s in Config Var
-![alt text](image.png)
-
 ![alt text](image-1.png)
-
 
 After that you go to Herokus deployment section 
 
@@ -173,5 +190,9 @@ You can read more information on cloning at the GitHub : https://docs.github.com
 https://youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&si=9t7TdLJVAM9BM9Ga
 https://realpython.com/build-a-blog-from-scratch-django/#set-up-the-development-environment
 
-#
+### Wireframes:
+https://balsamiq.cloud/
+
+### Create ERD:
+draw.io
 
