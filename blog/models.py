@@ -10,6 +10,9 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        verbose_name_plural = "categories"
+
     def __str__(self):
         return self.name
 
@@ -25,6 +28,9 @@ class Post(models.Model):
     def __str__(self):
         return self.title
     
+    class Meta:
+        ordering = ["-created_on"]
+
 class Comment(models.Model):
     author = models.CharField(max_length=60)
     body = models.TextField()
@@ -33,3 +39,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.author_name}: {self.content[:50]}..."
+
+    class Meta:
+        ordering = ["created_on"]    
