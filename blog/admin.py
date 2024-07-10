@@ -6,13 +6,19 @@ from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'slug', 'created_on')
+    prepopulated_fields = {'slug': ('title',)}
+    list_display = ('title', 'slug', 'status','created_on')
     search_fields = ['title', 'content']
-    filter_horizontal = ('categories',)
+    list_filter = ('categories',)
     summernote_fields = ('content',)
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'created_at', 'updated_at')
 
-admin.site.register(Comment)
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    """Admin panel for comments"""
+    list_display = ('post', 'name', 'body', 'created_on')
+    list_filter = ('name', 'created_on')
+    search_fields = ['name', 'email', 'body']

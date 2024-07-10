@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django.views import generic
-from .models import Category
-from .models import Post, Comment
+from django.shortcuts import render, get_object_or_404
+from django.db.models import Q
+from .models import Category, Post, Comment
 from django.urls import path, include
 
 
@@ -43,3 +42,17 @@ def blog_detail(request, pk):
     }
 
     return render(request, "blog/detail.html", context)
+
+
+def category_search(request):
+    query = request.GET.get('q')
+    if query:
+        categories = Category.objects.filter(Q(name__icontains=query) | Q(description__icontains=query))
+    else:
+        categories = Category.objects.all()
+    
+    context = {
+        'categories': categories,
+        'query': query,
+    }
+    return render(request, 'blog/category_search.html', context)

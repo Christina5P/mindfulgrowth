@@ -14,6 +14,7 @@ link to my mindmap: https://miro.com/app/board/uXjVK1IKqsk=/
 
 ## Relationship diagram ERD
 
+![alt text](image-11.png)
 
 Link: https://drive.google.com/file/d/1SYwaMzGs6PuOuEuA6Yi4T2Q0p8dvmSvd/view?usp=sharing
 
@@ -193,6 +194,6 @@ https://realpython.com/build-a-blog-from-scratch-django/#set-up-the-development-
 ### Wireframes:
 https://balsamiq.cloud/
 
-### Create ERD:
-draw.io
+### Create ERD: 
+http://draw.io
 
