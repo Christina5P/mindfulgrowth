@@ -2,51 +2,22 @@
 
 {% block content %}
 
-<!--style likeheart- move to css stylesheet-->
 
-<style>
+<!-- LIKES -->
+{% if user.is_authenticated %}
+  <form action="{% url 'blogpost_like' object.id %}" method="POST">
+    {% csrf_token %}
 
-    .like-container{
-        width: 100px;
-        height: auto;
-        padding: 10px 10px 10px 10px;
-        display: flex;
-        align-items:center;
-        justify-content: space-between;
-        flex-direction: column;
-        margin-bottom: 10px;
-
-    }
-
-.like-container button{
-    background: none;
-    border: none;
-}
-
-i{
-  font-size: 22px;
-  cursor: pointer;
-}
-
-</style>
-
-
-<div class="like-container">
-    <p class="num-of-likes" id ="num">{{post.likes.count}}</p>
-
-  {% if msg %}
-
-  <i class="fa-solid fa-heart"></i> 
-  
-  {% else %}
-
-  <i class="fa-regular fa-heart"></i>
-
-  {% endif %}
-
-  <small>like</small>
-</div>
-
+    {% if post_is_liked %}
+    <button type="submit" name="blogpost_id" value="{{object.id}}" class="btn btn-info">Unlike</button>
+    {% else %}
+    <button type="submit" name="blogpost_id" value="{{object.id}}" class="btn btn-info">Like</button>
+    {% endif %}
+  </form>
+{% else %}
+  <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to like this article!</a><br>
+{% endif %}
+<strong class="text-secondary">{{ number_of_likes }} Like{{ number_of_likes|pluralize }}</strong>
 
 
 {% endblock %}

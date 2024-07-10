@@ -19,7 +19,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)     # to show short beginning from textfield
-    likes = models.ManyToManyField(User, related_name='post_likes')
+    likes = models.ManyToManyField(User, related_name='blogpost_like')
 
     class Meta:
         ordering = ["-created_on"]
@@ -30,6 +30,9 @@ class Post(models.Model):
         if not self.excerpt:
             self.excerpt =self.content[:100]    
         super().save(args, **kwargs)    
+
+    def number_of_likes(self):
+        return self.likes.count()    
 
     def __str__(self):
         return self.title
