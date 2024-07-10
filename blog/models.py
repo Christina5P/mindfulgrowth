@@ -31,16 +31,13 @@ class Comment(models.Model):
     author = models.CharField(max_length=150)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    post = models.ForeignKey(Post, on_delete=models.CASCADE,
-                            related_name="comments")           # relate comment to a unique post and delete comment with post delete
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
 
-
-class Meta:
-    ordering = ["created_on"]    
+    class Meta:
+        ordering = ["created_on"]
 
     def __str__(self):
-        return f"{self.author_name}: {self.content[:50]}..."
-
+        return f"{self.author}: {self.body[:50]}..."
     
 
         
