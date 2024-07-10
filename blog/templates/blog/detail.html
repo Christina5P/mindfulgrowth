@@ -1,1 +1,52 @@
 {% extends "base.html" %}
+
+{% block content %}
+
+<!--style likeheart- move to css stylesheet-->
+
+<style>
+
+    .like-container{
+        width: 100px;
+        height: auto;
+        padding: 10px 10px 10px 10px;
+        display: flex;
+        align-items:center;
+        justify-content: space-between;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+    }
+
+.like-container button{
+    background: none;
+    border: none;
+}
+
+i{
+  font-size: 22px;
+  cursor: pointer;
+}
+
+</style>
+
+
+<div class="like-container">
+    <p class="num-of-likes" id ="num">{{post.likes.count}}</p>
+
+  {% if msg %}
+
+  <i class="fa-solid fa-heart"></i> 
+  
+  {% else %}
+
+  <i class="fa-regular fa-heart"></i>
+
+  {% endif %}
+
+  <small>like</small>
+</div>
+
+
+
+{% endblock %}

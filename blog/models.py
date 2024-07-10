@@ -10,16 +10,26 @@ class Post(models.Model):
     
     title = models.CharField(max_length=255, unique=True)
     content = models.TextField()
-    author = models.CharField(max_length=600)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="blog_posts"
+    )
     created_on = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     categories = models.ManyToManyField("Category", related_name="posts") #to assign many categories to many posts
     slug = models.SlugField(max_length=255, unique=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)     # to show short beginning from textfield
+    likes = models.ManyToManyField(User, related_name='post_likes')
 
     class Meta:
         ordering = ["-created_on"]
+
+    # To save Excerpt automatically
+
+    def save(self, *args, **kwargs):
+        if not self.excerpt:
+            self.excerpt =self.content[:100]    
+        super().save(args, **kwargs)    
 
     def __str__(self):
         return self.title
@@ -28,7 +38,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    author = models.CharField(max_length=150)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, max_length=150)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
@@ -36,10 +46,10 @@ class Comment(models.Model):
     class Meta:
         ordering = ["created_on"]
 
+   
     def __str__(self):
-        return f"{self.author}: {self.body[:50]}..."
-    
-
+        return f"Comment {self.body} by {self.author.username}"
+  
         
 class Category(models.Model):
     name = models.CharField(max_length=60)

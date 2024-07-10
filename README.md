@@ -36,6 +36,12 @@ Blogpost:
 
 ## Home Page
 ## Blog Page
+In blog page, I would like to have a clean and calm style.
+You would be able to search for a blog by category.
+You have to be logegd in to comment a post, but I want it easy so the comment will be approved right away without 
+the admins approvement.
+You still have a draft and publish choice, so you can read through your comment before publish.
+
 ## Nav Bar
 ## Footer
 ## Register section
@@ -183,6 +189,8 @@ You can read more information on cloning at the GitHub : https://docs.github.com
 ## Images
 ## Font
 ## Databas
+CI Database https://dbs.ci-dbs.net/
+
 ## Framework 
 
 # Acknowledgement
@@ -190,10 +198,15 @@ You can read more information on cloning at the GitHub : https://docs.github.com
 ### for tutoring Django:
 https://youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&si=9t7TdLJVAM9BM9Ga
 https://realpython.com/build-a-blog-from-scratch-django/#set-up-the-development-environment
+https://www.youtube.com/watch?v=ZUiTiUj-tZw
+
 
 ### Wireframes:
 https://balsamiq.cloud/
 
 ### Create ERD: 
 http://draw.io
+
+### ChatGPT.com:
+Suggestion to create sexcerpt automatically save
 
