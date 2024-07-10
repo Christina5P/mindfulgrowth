@@ -216,6 +216,8 @@ https://youtube.com/playlist?list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&si=9t7TdLJV
 https://realpython.com/build-a-blog-from-scratch-django/#set-up-the-development-environment
 https://www.youtube.com/watch?v=ZUiTiUj-tZw
 https://www.youtube.com/watch?v=PXqRPqDjDgc
+https://dev.to/radualexandrub/how-to-add-like-unlike-button-to-your-django-blog-5gkg
+
 
 
 
