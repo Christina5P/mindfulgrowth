@@ -114,6 +114,22 @@ hint: It´s important to spell Procfile with a capital
 ## Manual Test
 
 # Bugs
+
+## Solved bugs
+
+* It started with a bug I didn´t really understand but suspected it came from a comment I had made in DB and afterwards I had changed user authorization for comments. I tried to solve it by deleted migration 0005.
+At first I also deleted migration 0006 + 0007 and tried to start over migration from 0004, without any result.
+Then I tried to reset the DB and keep the migration by the command "python3 manage.py flush"
+The DB was still kept the error.
+I change the author from 
+('author', models.CharField(max_length=60)), 
+to: ('author', models.ForeignKey(max_length=150, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+in the Postmodel.
+After that I needed to create a new DB + superuser and replace DB-url in env.py and Herokus config Var
+
+![alt text](image-12.png)
+
+
 ## Fixed Bugs
 ## Unfixed Bugs
 
