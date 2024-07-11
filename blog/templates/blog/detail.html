@@ -4,20 +4,29 @@
 
 
 <!-- LIKES -->
-{% if user.is_authenticated %}
-  <form action="{% url 'blogpost_like' object.id %}" method="POST">
-    {% csrf_token %}
+<p>Likes: {{ number_of_likes }}</p>
 
-    {% if post_is_liked %}
-    <button type="submit" name="blogpost_id" value="{{object.id}}" class="btn btn-info">Unlike</button>
-    {% else %}
-    <button type="submit" name="blogpost_id" value="{{object.id}}" class="btn btn-info">Like</button>
-    {% endif %}
-  </form>
+<!-- Display like/unlike button -->
+{% if post_is_liked %}
+<form action="{% url 'unlike_post' post.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Unlike</button>
+</form>
 {% else %}
-  <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to like this article!</a><br>
+<form action="{% url 'like_post' post.id %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Like</button>
+</form>
 {% endif %}
-<strong class="text-secondary">{{ number_of_likes }} Like{{ number_of_likes|pluralize }}</strong>
+
+
+  <!-- Display comments -->
+  <h2>Comments</h2>
+  {% for comment in comments %}
+      <p>{{ comment.author }}: {{ comment.body }}</p>
+  {% endfor %}
+
+  
 
 
 {% endblock %}
