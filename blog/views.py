@@ -97,4 +97,5 @@ def unlike_post(request, pk):
     post.likes.remove(request.user)
     return HttpResponseRedirect(reverse('blog_detail', args=[str(pk)]))
 
-
+def carousel(request):
+    return render(request, 'carousel.html')
