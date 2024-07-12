@@ -11,5 +11,6 @@ urlpatterns = [
     path('search/', views.category_search, name='category_search'),
     path('post/<int:pk>/like/', views.post_like, name='post_like'),
     path('post/<int:pk>/unlike/', views.unlike_post, name='unlike_post'),
-     path('carousel/', views.carousel, name='carousel'),
+    path('carousel/', views.carousel, name='carousel'),
+    path('contact/', views.contact, name='contact'),
     ]

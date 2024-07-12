@@ -82,6 +82,9 @@ def category_search(request):
     }
     return render(request, 'blog/category_search.html', context)
 
+def contact(request):
+    return render(request, 'contact.html')    
+
 @login_required
 def post_like(request, pk):
     """
