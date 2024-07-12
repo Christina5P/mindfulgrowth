@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.conf import settings
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
@@ -22,7 +23,7 @@ class Post(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)     # to show short beginning from textfield
     likes = models.ManyToManyField(User, related_name='post_like')
-
+    
     class Meta:
         ordering = ["-created_on"]
 
@@ -45,7 +46,7 @@ class Comment(models.Model):
     Model for Comments with fields for author,content,
     created, modified, many categories, link to blog post
     """
-    author = models.ForeignKey(User, on_delete=models.CASCADE, max_length=150)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, max_length=150, related_name="comments")
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")

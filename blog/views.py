@@ -7,6 +7,7 @@ from django.urls import reverse
 from .models import Category, Post, Comment
 from django.urls import path, include
 from django.contrib.auth.decorators import login_required
+from .models import User
 
 class PostList(generic.ListView):
     """
@@ -82,8 +83,31 @@ def category_search(request):
     }
     return render(request, 'blog/category_search.html', context)
 
+
 def contact(request):
     return render(request, 'contact.html')    
+
+def register(request):
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        password = request.POST['password']
+
+        if first_name and last_name and email and password:
+            user = User.objects.create_user(
+                username=email,
+                email=email,
+                password=password,
+                first_name=first_name,
+                last_name=last_name
+            )
+            login(request, user)
+            return redirect('home')  
+        else:
+            pass
+
+    return render(request, 'contact.html', {})
 
 @login_required
 def post_like(request, pk):
