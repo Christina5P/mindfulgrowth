@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block_page content %}
+{% block page_content %}
 
 
       <!--Sign Up Form-->
@@ -50,11 +50,19 @@
                 </label>
               </div>
   
-              <!-- Submit button -->
+              <!-- Submit button MDB
               <button type="submit" class="btn btn-primary btn-block mb-4" data-mdb-ripple-init>
                 Sign up
-              </button>
-  
+              </button> -->
+
+              
+        <form method="post">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Send</button>
+        </form>
+        {% endblock page_content %}
+        
               <!-- Register buttons -->
               <div class="text-center">
                 <p>or sign up with:</p>
@@ -81,4 +89,5 @@
       <!--Section: Content-->
     </div>
   </main>
-  {% endblock page_content %}
+  
+  </html>

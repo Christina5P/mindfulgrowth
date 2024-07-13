@@ -75,3 +75,41 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
+class Contact(models.Model):
+    """
+    Model for Contact with fields for Sign In,
+    """
+    name = models.CharField(max_length=100)
+    email = models.EmailField()
+    subject = models.CharField(max_length=200)
+    created_at = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+    )
+     
+    def __str__(self):
+        return f"Comment {self.name} - {self.subject}"
+  
+  
+class courses(models.Model):
+    """
+    Model for courses with fields for unique title,author,content,
+    created, modified, many categories, draft or published
+    """
+    title = models.CharField(max_length=255, unique=True)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="courses"
+    )
+    content = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+    categories = models.ManyToManyField("Category", related_name="courses") #to assign many categories to many posts
+    slug = models.SlugField(max_length=255, unique=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+     
+    class Meta:
+        ordering = ["-created_on"]

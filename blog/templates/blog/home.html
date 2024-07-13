@@ -1,5 +1,8 @@
 {% extends "base.html" %}
 
+
+{% block page_content %}
+
    <!--Section: Content-->
    <section>
     <div class="row">
@@ -15,9 +18,7 @@
       <div class="col-md-6 gx-5 mb-4">
         <h4><strong>Facilis consequatur eligendi</strong></h4>
         <p class="text-muted">
-        {% block content %}
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
+           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis consequatur
           eligendi quisquam doloremque vero ex debitis veritatis placeat unde animi laborum
           sapiente illo possimus, commodi dignissimos obcaecati illum maiores corporis.
         </p>
@@ -26,10 +27,9 @@
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod itaque voluptate
           nesciunt laborum incidunt. Officia, quam consectetur. Earum eligendi aliquam illum
           alias, unde optio accusantium soluta, iusto molestiae adipisci et?
-
-        {% endblock content %}
-
         </p>
       </div>
     </div>
   </section>
+  
+  {% endblock page_content %}

@@ -4,10 +4,10 @@ from django.views import generic, View
 from django.views.generic import DetailView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Category, Post, Comment
+from .models import Category, Post, Comment, Contact, courses
 from django.urls import path, include
 from django.contrib.auth.decorators import login_required
-from .models import User
+from .forms import ContactForm, SignedInContactForm
 
 class PostList(generic.ListView):
     """
@@ -87,27 +87,31 @@ def category_search(request):
 def contact(request):
     return render(request, 'contact.html')    
 
-def register(request):
+def contact_view(request):
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        password = request.POST['password']
+        if request.user.is_authenticated:
+            form: SignedInContactForm(request.POST)
+            if form.is_valid():
+                contact = form.save(commit=False)
+                contact.user = request.user
+                contact.name = request.user.get_full_name() or request.user.us 
+                contact.email = request.user.email
+                contact.save()
+                return HttpResponseRedirect ('contact')
+            else:
+                form = ContactForm(request.POST)
+                if form.is_valid():
+                    form.save()
+                    return HttpResponseRedirect('contact')
 
-        if first_name and last_name and email and password:
-            user = User.objects.create_user(
-                username=email,
-                email=email,
-                password=password,
-                first_name=first_name,
-                last_name=last_name
-            )
-            login(request, user)
-            return redirect('home')  
+    else:
+        if request.user.is_authenticated:         
+            form = SignedInContactForm()
         else:
-            pass
+            form = ContactForm
 
-    return render(request, 'contact.html', {})
+    return render(request, 'blog/contact.html', {'form': form})
+
 
 @login_required
 def post_like(request, pk):
@@ -126,3 +130,16 @@ def unlike_post(request, pk):
 
 def carousel(request):
     return render(request, 'carousel.html')
+
+def courses_index(request):
+    courses = Post.objects.all().order_by("-created_on")
+    context = {
+        "courses": courses,
+    }
+    return render(request, 'blog/courses.html', context)
+
+def home_view(request):
+    """
+    Render Home page
+    """
+    return render(request, 'blog/home.html', context)

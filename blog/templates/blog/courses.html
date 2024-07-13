@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% block page_content %}
+
 
 
     <!-- Section: My projects -->
@@ -26,14 +28,9 @@
                     <a href="" class="text-dark">Techify</a></small>
                 </p>
                 <p class="card-text">
-
-                  {% block content %}
-
                   Ut pretium ultricies dignissim. Sed sit amet mi eget urna
                   placerat vulputate. Ut vulputate est non quam dignissim
                   elementum. Donec a ullamcorper diam.
-
-                  {% endblock Content %}
 
                 </p>
                 <a href="#!" class="btn btn-secondary btn-rounded" data-mdb-ripple-init>Read more</a>
@@ -110,3 +107,5 @@
   </main>
   <!--Main layout-->
 
+
+  {% endblock page_content %}
