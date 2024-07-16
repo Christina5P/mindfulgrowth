@@ -129,6 +129,14 @@ After that I needed to create a new DB + superuser and replace DB-url in env.py 
 
 ![alt text](image-12.png)
 
+* Migration problem of 0006_initial.py
+Tried a new migration a several times, but got stock on the 0006 migration.
+Tried to remigrate a lot of times, with same result.
+I removed class contact and class courses, since that was my last actions.
+I also deleted every migratefile after 0005, but I got same result over and over again when I tried to make a new migration.
+Then I tried to replace the DB with a new one, but it didn´t recognize DB.
+I search for tutor help and got answered that it was a general problem with the DB and it took a day for resolvment.
+Then I changed back to my old DB again and it worked to migrate!
 
 ## Fixed Bugs
 ## Unfixed Bugs

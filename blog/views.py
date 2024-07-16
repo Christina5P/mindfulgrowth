@@ -4,10 +4,9 @@ from django.views import generic, View
 from django.views.generic import DetailView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Category, Post, Comment, Contact, courses
+from .models import Category, Post, Comment, Courses
 from django.urls import path, include
 from django.contrib.auth.decorators import login_required
-from .forms import ContactForm, SignedInContactForm
 
 class PostList(generic.ListView):
     """
@@ -83,36 +82,6 @@ def category_search(request):
     }
     return render(request, 'blog/category_search.html', context)
 
-
-def contact(request):
-    return render(request, 'contact.html')    
-
-def contact_view(request):
-    if request.method == 'POST':
-        if request.user.is_authenticated:
-            form: SignedInContactForm(request.POST)
-            if form.is_valid():
-                contact = form.save(commit=False)
-                contact.user = request.user
-                contact.name = request.user.get_full_name() or request.user.us 
-                contact.email = request.user.email
-                contact.save()
-                return HttpResponseRedirect ('contact')
-            else:
-                form = ContactForm(request.POST)
-                if form.is_valid():
-                    form.save()
-                    return HttpResponseRedirect('contact')
-
-    else:
-        if request.user.is_authenticated:         
-            form = SignedInContactForm()
-        else:
-            form = ContactForm
-
-    return render(request, 'blog/contact.html', {'form': form})
-
-
 @login_required
 def post_like(request, pk):
     """
@@ -143,3 +112,4 @@ def home_view(request):
     Render Home page
     """
     return render(request, 'blog/home.html', context)
+
